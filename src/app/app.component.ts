@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Home } from '../pages/home/home';
 import { Guide } from '../pages/guide/guide';
 import { HotelsPage } from '../pages/hotels/hotels';
+import { BeachesPage } from '../pages/beaches/beaches';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: Home, icon: 'home', color: 'primary'},
       { title: 'Guide', component: Guide, icon: 'information-circle', color: 'primary' },
-      { title: 'Hotels', component: HotelsPage, icon: 'star', color: 'primary' }
+      { title: 'Hotels', component: HotelsPage, icon: 'star', color: 'primary' },
+      { title: 'Beaches', component: BeachesPage, icon: 'star', color: 'primary' }
     ];
 
   }

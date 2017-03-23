@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
 import { Guide } from '../pages/guide/guide';
 import { HotelsPage } from '../pages/hotels/hotels';
+import { BeachesPage } from '../pages/beaches/beaches';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +31,8 @@ const myFirebaseAuthConfig = {
     MyApp,
     Home,
     Guide,
-    HotelsPage
+    HotelsPage,
+    BeachesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -41,7 +43,8 @@ const myFirebaseAuthConfig = {
     MyApp,
     Home,
     Guide,
-    HotelsPage
+    HotelsPage,
+    BeachesPage
   ],
   providers: [
     StatusBar,

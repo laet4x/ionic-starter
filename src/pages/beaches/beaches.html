@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hotels</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let beach of beaches | async">
+      <!-- <ion-avatar item-left>
+        <img [src]="person.picture">
+      </ion-avatar> -->
+      <h2>{{ beach.name }}</h2>
+      <p> 
+        Address: {{ beach.address }}
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>
