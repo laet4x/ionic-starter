@@ -31,7 +31,7 @@ export class Guide {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(AboutUs, {
+    this.navCtrl.push(Guide, {
       item: item
     });
   }
