@@ -18,13 +18,14 @@ import { HotelPage } from '../hotel/hotel';
 export class HotelsPage {
   hotels: FirebaseListObservable<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public af: AngularFire) {
-  this.hotels = af.database.list('hotel');
   }
 
   ionViewDidLoad() {
+    this.hotels = this.af.database.list('hotel');
     console.log('ionViewDidLoad HotelsPage');
     let loading = this.loadingCtrl.create({
-     content: `<ion-spinner name="bubbles"></ion-spinner>`
+     spinner: 'crescent',
+     content: 'Loading Please Wait...'
     });
 
     loading.present().then(() => {

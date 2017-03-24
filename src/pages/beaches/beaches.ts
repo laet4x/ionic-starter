@@ -14,10 +14,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class BeachesPage {
   beaches: FirebaseListObservable<any>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire) {
-  this.beaches = af.database.list('beaches');
   }
 
   ionViewDidLoad() {
+  	this.beaches = this.af.database.list('beaches');
     console.log('ionViewDidLoad BeachesPage');
   }
 
