@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
 import { Guide } from '../pages/guide/guide';
 import { HotelsPage } from '../pages/hotels/hotels';
+import { HotelPage } from '../pages/hotel/hotel';
 import { BeachesPage } from '../pages/beaches/beaches';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -32,6 +33,7 @@ const myFirebaseAuthConfig = {
     Home,
     Guide,
     HotelsPage,
+    HotelPage,
     BeachesPage
   ],
   imports: [
@@ -44,6 +46,7 @@ const myFirebaseAuthConfig = {
     Home,
     Guide,
     HotelsPage,
+    HotelPage,
     BeachesPage
   ],
   providers: [

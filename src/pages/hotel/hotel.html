@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hotel</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <h3>Welcome to IloIlo Travel App</h3>
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+  <button ion-button secondary menuToggle>Toggle Menu</button> -->
+  <ion-card>
+  <img src="assets/img/nin-live.png"/>
+  <ion-card-content *ngIf="selectedItem" padding>
+     <ion-card-title>
+      {{selectedItem.name}}
+     </ion-card-title>
+     <h2>{{selectedItem.address}}</h2>
+    <p>
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id lacus volutpat, cursus ante at, ullamcorper orci. Mauris eleifend lorem vitae diam volutpat scelerisque quis fringilla ligula. Proin non metus quis erat molestie consectetur. Cras in enim dictum, scelerisque orci a, tincidunt lacus. Etiam ullamcorper, erat non volutpat luctus, augue mi facilisis dolor, vel molestie orci diam non neque.
+    </p>
+  </ion-card-content>
+  </ion-card>
+</ion-content>
+
