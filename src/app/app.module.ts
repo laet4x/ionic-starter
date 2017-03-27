@@ -10,8 +10,11 @@ import { BeachesPage } from '../pages/beaches/beaches';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Providers
+import { HotelsProvider } from '../providers/hotels';
+
 // Import the AF2 Module
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule} from 'angularfire2';
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -21,11 +24,6 @@ export const firebaseConfig = {
   storageBucket: "travel-app-69ff2.appspot.com",
   messagingSenderId: "617036971845"
 };
-
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-}
 
 @NgModule({
   declarations: [
@@ -38,7 +36,7 @@ const myFirebaseAuthConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +50,8 @@ const myFirebaseAuthConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, 
+    HotelsProvider
   ]
 })
 export class AppModule {}

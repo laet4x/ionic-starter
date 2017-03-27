@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 
 import { HotelPage } from '../hotel/hotel';
+import { HotelsProvider } from '../../providers/hotels';
 
 /*
   Generated class for the Hotels page.
@@ -16,12 +17,21 @@ import { HotelPage } from '../hotel/hotel';
   templateUrl: 'hotels.html'
 })
 export class HotelsPage {
-  hotels: FirebaseListObservable<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public af: AngularFire) {
+  hotels: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public loadingCtrl: LoadingController, 
+    protected data: HotelsProvider,
+    public af: AngularFire) {
   }
 
   ionViewDidLoad() {
-    this.hotels = this.af.database.list('hotel');
+
+    this.data.list('hotel').subscribe(res => {
+          this.hotels = res;
+    });
+
     console.log('ionViewDidLoad HotelsPage');
     let loading = this.loadingCtrl.create({
      spinner: 'crescent',
@@ -29,7 +39,7 @@ export class HotelsPage {
     });
 
     loading.present().then(() => {
-      this.hotels.subscribe(res => {
+      this.data.list('hotel').subscribe(res => {
           if(res){
             console.log(res);
             loading.dismiss();

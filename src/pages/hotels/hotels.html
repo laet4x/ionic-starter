@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-      <button ion-item *ngFor="let hotel of hotels | async" (click)="itemTapped($event, hotel)">
+      <button ion-item *ngFor="let hotel of hotels" (click)="itemTapped($event, hotel)">
   		<ion-icon [name]="'star'" item-left></ion-icon>
   		{{hotel.name}}
       	<div class="item-note" item-right>
