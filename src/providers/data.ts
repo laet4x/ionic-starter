@@ -5,6 +5,8 @@ import {
   AfoListObservable,
   AfoObjectObservable } from 'angularfire2-offline';
 import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the Hotels provider.
@@ -15,7 +17,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class DataProvider {
 
-  constructor(private af: AngularFireOffline) {
+  constructor(private af: AngularFireOffline,private http: Http) {
     console.log('Hello Data Provider');
   }
 
@@ -41,6 +43,10 @@ export class DataProvider {
     
   object(path: string): AfoObjectObservable<any> {
     return this.af.database.object(path);
+  }
+
+  get(path: string): any {
+    return this.http.get(path);
   }
 
   remove(path: string): Observable<any> {

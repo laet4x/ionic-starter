@@ -3,7 +3,7 @@ import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { HotelPage } from '../hotel/hotel';
 import { DataProvider } from '../../providers/data';
-
+import 'rxjs/add/operator/map';
 /*
   Generated class for the Hotels page.
 
@@ -23,7 +23,15 @@ export class HotelsPage {
     protected data: DataProvider) {
   }
   ionViewWillEnter(){
-     this.hotels = this.data.list('/hotel');
+     // this.hotels = this.data.list('/hotel');
+     this.data.get('assets/data/data.json')
+      .map((res) => res.json())
+      .subscribe(data => {
+        this.hotels = data.hotels;
+        console.log(data.hotels);
+      }, (rej) => {
+        console.error("Could not load local data",rej);
+      });
 
       console.log('ionViewWillEnter HotelsPage');
       let loading = this.loadingCtrl.create({
@@ -32,11 +40,15 @@ export class HotelsPage {
       });
 
       loading.present().then(() => {
-        this.data.list('/hotel').subscribe(res => {
-            if(res){
-              loading.dismiss();
-            }
-         });
+        this.data.get('assets/data/data.json')
+        .map((res) => res.json())
+        .subscribe(data => {
+        if(data){
+           loading.dismiss();
+        }
+        }, (rej) => {
+          console.error("Could not load local data",rej);
+        });
       });
   }
 

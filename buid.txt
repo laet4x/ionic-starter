@@ -8,3 +8,6 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.
 
 Android/sdk/build-tools/VERSION/zipalign
 zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
+
+GOOGLE MAP API
+AIzaSyC0Imkv2fT5F9ZpiZcDjV64Fmeu_ve8y4c

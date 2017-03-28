@@ -1,0 +1,14 @@
+{
+"hotels": [
+	{ "id": "1", "name": "Sarabai Manor Hotel", "address": "General Luna Street", "lat": "43.0741904", "long": "-89.3809802" },
+	{ "id": "2", "name": "Days Hotel", "address": "4F The Atrium Mall Gen Luna St" },
+	{ "id": "3", "name": "Go Hotels", "address": "Cor. Ledesma St. and Mabini St" },
+	{ "id": "4", "name": "Harbor Town Hotel", "address": "Aldeguer St., corner JM Basa" },
+	{ "id": "5", "name": "Hotel Del Rio", "address": "M.H del Pilar St, Molo" },
+	{ "id": "6", "name": "Amigo Terrace Hotel", "address": "Iznart St, Iloilo City Proper" },
+	{ "id": "7", "name": "The Circle Inn Hotel", "address": "Gov Fermin Caram St, Iloilo City Proper" },
+	{ "id": "8", "name": "GT Hotel", "address": "15 Majestic Building, De Leon St, Iloilo City Proper" },
+	{ "id": "9", "name": "Eon Centennial Plaza", "address": "Jalandoni St., City Proper" },
+	{ "id": "10", "name": "88 Plaza Hotel", "address": "Delgado St, Iloilo City Proper" }
+	]
+}
