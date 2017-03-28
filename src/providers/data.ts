@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+//import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import {
+  AngularFireOffline,
+  AfoListObservable,
+  AfoObjectObservable } from 'angularfire2-offline';
 import { Observable } from 'rxjs/Observable';
 
 /*
@@ -9,10 +13,10 @@ import { Observable } from 'rxjs/Observable';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class HotelsProvider {
+export class DataProvider {
 
-  constructor(private af: AngularFire) {
-    console.log('Hello Hotels Provider');
+  constructor(private af: AngularFireOffline) {
+    console.log('Hello Data Provider');
   }
 
   push(path: string, data: any): Observable<any> {
@@ -31,11 +35,11 @@ export class HotelsProvider {
     this.af.database.object(path).update(data);
   }
 
-  list(path: string): FirebaseListObservable<any> {
+  list(path: string): AfoListObservable<any[]> {
     return this.af.database.list(path);
   }
-
-  object(path: string): FirebaseObjectObservable<any> {
+    
+  object(path: string): AfoObjectObservable<any> {
     return this.af.database.object(path);
   }
 

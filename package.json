@@ -4,8 +4,6 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
-    "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
@@ -24,6 +22,7 @@
     "@ionic-native/status-bar": "3.1.0",
     "@ionic/storage": "2.0.0",
     "angularfire2": "^2.0.0-beta.8",
+    "angularfire2-offline": "^2.0.3",
     "firebase": "^3.7.3",
     "ionic-angular": "2.3.0",
     "ionicons": "3.0.0",

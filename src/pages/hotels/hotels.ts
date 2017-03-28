@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
-import { AngularFire } from 'angularfire2';
-
 import { HotelPage } from '../hotel/hotel';
-import { HotelsProvider } from '../../providers/hotels';
+import { DataProvider } from '../../providers/data';
 
 /*
   Generated class for the Hotels page.
@@ -22,30 +20,32 @@ export class HotelsPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public loadingCtrl: LoadingController, 
-    protected data: HotelsProvider,
-    public af: AngularFire) {
+    protected data: DataProvider) {
+  }
+  ionViewWillEnter(){
+     this.hotels = this.data.list('/hotel');
+
+      console.log('ionViewWillEnter HotelsPage');
+      let loading = this.loadingCtrl.create({
+       spinner: 'crescent',
+       content: 'Loading Please Wait...'
+      });
+
+      loading.present().then(() => {
+        this.data.list('/hotel').subscribe(res => {
+            if(res){
+              loading.dismiss();
+            }
+         });
+      });
   }
 
   ionViewDidLoad() {
+  
+  }
 
-    this.data.list('hotel').subscribe(res => {
-          this.hotels = res;
-    });
-
-    console.log('ionViewDidLoad HotelsPage');
-    let loading = this.loadingCtrl.create({
-     spinner: 'crescent',
-     content: 'Loading Please Wait...'
-    });
-
-    loading.present().then(() => {
-      this.data.list('hotel').subscribe(res => {
-          if(res){
-            console.log(res);
-            loading.dismiss();
-          }
-       });
-    });
+  ionViewWillUnload() {
+    this.data.list('hotel').subscribe().unsubscribe();
   }
 
   itemTapped(event, item) {

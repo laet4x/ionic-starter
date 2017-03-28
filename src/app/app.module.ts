@@ -1,3 +1,4 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -11,10 +12,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Providers
-import { HotelsProvider } from '../providers/hotels';
+import { DataProvider } from '../providers/data';
 
 // Import the AF2 Module
 import { AngularFireModule} from 'angularfire2';
+import { AngularFireOfflineModule } from 'angularfire2-offline';
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -35,8 +37,10 @@ export const firebaseConfig = {
     BeachesPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireOfflineModule,
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +55,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
-    HotelsProvider
+    DataProvider
   ]
 })
 export class AppModule {}
